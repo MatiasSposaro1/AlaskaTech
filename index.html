@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alaska Tech - Tienda Online</title>
+  <meta name="description" content="Catálogo online de productos tecnológicos: auriculares, cargadores, lámparas y más.">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.Cs-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+
+  <header class="bg-gray-900 text-white sticky top-0 z-50 shadow">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-xl font-bold">Alaska Tech</h1>
+    <nav class="flex items-center gap-6">
+      <a href="#productos" class="hover:underline">Productos</a>
+      <a href="#contacto" class="hover:underline">Contacto</a>
+      <button id="btn-toggle-carrito" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">
+        🛒 Ver carrito
+      </button>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section id="productos" class="pt-4">
+      <h2>Productos Destacados</h2>
+     <div class="flex justify-center mb-4">
+      <input
+        type="text"
+        id="buscador-productos"
+        placeholder="Buscar productos..."
+        class="w-full max-w-md p-2 border rounded shadow"
+      />
+      </div>
+      <div id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Acá se insertan los productos con JavaScript -->
+      </div>
+    </section>
+    <section id="contacto" class="p-6 bg-gray-100 mt-8 text-center">
+  <h2 class="text-xl font-semibold mb-4">📞 Contacto</h2>
+  <p class="mb-2">¿Tenés alguna duda o querés hacer un pedido?</p>
+  <a href="https://wa.me/5491176025040" target="_blank"
+     class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow">
+    <img src="img/LogoWsp.png" alt="WhatsApp" class="w-5 h-5">
+    Contactar por WhatsApp
+  </a>
+</section>
+  </main>
+
+  <!-- Carrito de compras -->
+  <aside id="carrito" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg p-4 z-50 overflow-y-auto transition-transform duration-300 transform  translate-x-full">
+  
+    <!-- ❌ Botón para cerrar -->
+    <button id="btn-cerrar-carrito" class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl">✖</button>
+
+  <h2 class="text-xl font-semibold mb-4">🛒 Carrito de Compras</h2>
+  <ul id="lista-carrito" class="space-y-2 text-sm font-medium text-gray-800">
+    <!-- Productos insertados por JS -->
+  </ul>
+
+  <div class="mt-4 border-t pt-4">
+    <p id="total-carrito" class="text-lg font-bold">Total: $0</p>
+
+    <div class="flex justify-between mt-4">
+      <button id="vaciar-carrito" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"> 
+        Vaciar
+      </button>
+      <button id="btn-finalizar" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded"> 
+        Finalizar
+      </button>
+    </div>
+</aside>
+
+<footer class="bg-gray-900 text-white mt-10">
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    
+    <!-- Texto de copyright -->
+    <div class="text-center md:text-left">
+      <p class="text-sm md:text-base font-medium">© 2025 Alaska Tech · Todos los derechos reservados</p>
+    </div>
+
+    
+    <!-- Íconos de redes sociales -->
+    <div class="flex items-center gap-4">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-pink-400 transition-opacity hover:opacity-75">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm6 1.25a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/5491176025040" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-green-400 transition-opacity hover:opacity-75">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.14 1.6 5.95L0 24l6.24-1.63A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.7.97.99-3.6-.24-.38A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.56-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.28-.97.95-.97 2.3 0 1.35.99 2.66 1.13 2.85.14.18 1.95 2.98 4.73 4.06.66.28 1.18.45 1.58.57.66.21 1.26.18 1.73.11.53-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Enlaces internos -->
+    <div class="flex gap-4 text-sm md:text-base">
+      <a href="#productos" class="hover:underline transition">Productos</a>
+      <a href="#contacto" class="hover:underline transition">Contacto</a>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="./js/script.js"></script>
+  <!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.5/dist/sweetalert2.min.js"></script>
+
+</body>
+</html>
