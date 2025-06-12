@@ -23,15 +23,6 @@
 - SweetAlert2 (para alertas personalizadas)
 - LocalStorage (para guardar el carrito)
 
-## 📂 Estructura de carpetas
-📁 AlaskaTech/
-├── index.html
-├── js/
-│ └── script.js
-├── css/
-│ └── style.css
-├── img/
-│ └── productos, íconos y logos
 
 ## 🎯 Objetivo del proyecto
 
